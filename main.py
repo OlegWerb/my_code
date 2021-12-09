@@ -1,7 +1,13 @@
-print("hello world")
+n = int(input())
 
-x = 5
-y = 10
-c = x + y
-print(c)
+suma = 0
+
+
+while n > 0:
+    digit = n % 10
+    suma = suma + digit
+    n = n // 10
+
+print(suma)
+
 
