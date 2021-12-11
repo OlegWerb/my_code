@@ -1,5 +1,7 @@
 from hwpl import plates_list
 
+
+
 unique_numbers = list(set(plates_list))
 print(len(unique_numbers))
 
@@ -16,12 +18,10 @@ while search > 0:
 
 print(suma)
 
-if search == plates_list:
-    print("yes")
-else:
-    print("no")
+#Надо узнать есть ли введенный с клавиатуры номер в списке (без учета регистра букв) -> не получаеться =(
+#n = plates_list
 
-
+#x = n.count(search)
 
 
 exit()
