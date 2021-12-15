@@ -27,6 +27,6 @@ e = 0
 for i in range(2, 6):
     e = e + int(x[i])
 
-#print(x)
+print(e)
 
 exit()
