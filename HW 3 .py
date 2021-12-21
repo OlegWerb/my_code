@@ -1,32 +1,38 @@
 from hwpl import plates_list
 
-unique_numbers = set(plates_list)
-print(len(unique_numbers))
+
+def uniq_numb():
+    uniq_numb = len(set(plates_list))
+    print(uniq_numb)
+
+uniq_numb()
+
+def search_plates():
+    search = input("please input namber : ")
+
+    x = search.upper()
+
+    if x in plates_list:
+        print("true")
+    else:
+        print("false")
+
+search_plates()
 
 
+def su_num():
+    search = input("please input namber : ")
 
-search = input("please input namber : ")
+    x = search.upper()
 
-x = search.upper()
+    x = x[2:6]
 
-if x in plates_list:
-    print("true")
-else:
-    print("false")
+    e = 0
+    for i in range(0, 4):
+        e = e + int(x[i])
 
-# a = int(search[2])
-# b = int(search[3])
-# c = int(search[4])
-# d = int(search[5])
-#
-# print(a+b+c+d)
+    print(e)
 
-x = x[2:6]
-
-e = 0
-for i in range(0, 4):
-    e = e + int(x[i])
-
-print(e)
+su_num()
 
 exit()
