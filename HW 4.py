@@ -3,39 +3,47 @@ from hwpl import plates_list
 
 def uniq_numb():
     uniq_numb = len(set(plates_list))
-    print(uniq_numb)
+    print(uniq_numb, "the sum of unique numbers in the list")
 
 uniq_numb()
 
-search = input("please input namber : ")
+search = input("please input number : ")
 
-nam_plates = search
+num_plates = search
 
-def in_plates(nam_plates):
-    if len(nam_plates) != 8:
+def in_plates(num_plates):
+    if len(num_plates) != 8:
         return False
     else:
-        if nam_plates in plates_list:
-            nam_plates = nam_plates[:2], nam_plates[2], nam_plates[3], nam_plates[5], nam_plates[6:]
-            return nam_plates
+        if num_plates in plates_list:
+            num_plates = num_plates[:2], num_plates[2], num_plates[3], num_plates[4], num_plates[5], num_plates[6:]
+            print("This number in plates_list")
+            return num_plates
+        else:
+            print("This number is not in plates_list")
+            num_plates = num_plates[:2], num_plates[2], num_plates[3], num_plates[4], num_plates[5], num_plates[6:]
+            return num_plates
 
-print(in_plates(nam_plates))
 
-def search_plates():
-    search = input("please input namber : ")
 
-    x = search.upper()
 
-    if x in plates_list:
-        print("true")
-    else:
-        print("false")
+print(in_plates(num_plates), "returns number")
 
-search_plates()
+# def search_plates():
+#     # search = input("please input number : ")
+#
+#     x = search.upper()
+#
+#     if x in plates_list:
+#         print("this number is in the list of license plates")
+#     else:
+#         print("this number is not in the list of license plates")
+#
+# search_plates()
 
 
 def su_num():
-    search = input("please input namber : ")
+
 
     x = search.upper()
 
@@ -45,7 +53,7 @@ def su_num():
     for i in range(0, 4):
         e = e + int(x[i])
 
-    print(e)
+    print((e), 'this is sum of your number')
 
 su_num()
 
