@@ -2,39 +2,47 @@ import tkinter as tk
 import random
 import time
 
+start_time = 0
+colors = ['yellow', 'red', 'green']
+wrong = 0
 
-a = 0
-b = 0
 
 window = tk.Tk()
 #Tentry = tk.Entry()
-window.geometry("300x300")
+window.geometry("400x400")
 
 
-
-start_time = time.time()
-end_time = time.time()
-spend_time = time.time() - start_time
 
 def send_message():
-    var = spend_time
-    print(var)
-    result_1.config(
-        text=var
-    )
+    global wrong
+    if label["background"] == "red":
+        spend_time = round(time.time() - start_time, 3)
+        result.config(text=f"Your reaction: {spend_time} s.")
+
+    else:
+        wrong_click = "Try again"
+        result.config(text=wrong_click)
+        wrong = wrong + 1
+        label_wrong.config(text=f"Mistake: {wrong}")
+        label.config(background="grey")
+        window.update()
+        time.sleep(1)
+
+
+
 
 label = tk.Label(
     text="Timer Calculator",
-    foreground="white",  # Set the text color to white
-    background="black",  # Set the background color to black
+    foreground="white",
+    background="black",
     width=100,
     height=4
 )
 
 label2 = tk.Label(
     text="If the title is red, click the button",
-    foreground="black",  # Set the text color to white
-    background="white",  # Set the background color to black
+    foreground="black",
+    background="white",
     width=100,
     height=2
 )
@@ -54,37 +62,46 @@ button = tk.Button(
     command=send_message
 )
 
+result = tk.Label(
+
+    foreground="green",  # Set the text color to white
+    font=("Arial", 25)
+)
+
+
+label_wrong = tk.Label(
+    text="Wrong click: 0",
+    foreground="red",
+    font=("Arial", 25)
+
+                       )
+
 result_1 = tk.Label(
     foreground="green",  # Set the text color to white
     font=("Arial", 25)
 )
-result = tk.Label(
-
-    foreground="red",  # Set the text color to white
-    font=("Arial", 25)
-)
 
 
-def lab_col():
+
+def timer_update():
     colors = ['yellow', 'red', 'green']
     value = random.randint(0, len(colors) - 1)
     label.config(background=colors[value])
     global start_time
-    colors[1]
-    global end_time
-    spend_time = time.time() - start_time
-    result.config(
-        text=spend_time
-    )
+    if label["background"] == "red":
+        start_time = time.time()
 
-    window.after(2000, lab_col)
 
-window.after(2000, lab_col)
+
+    window.after(2000, timer_update )
+
+window.after(2000, timer_update )
 
 
 
 for c in window.children:
     print(c)
     window.children[c].pack()
+
 
 window.mainloop()
