@@ -2,9 +2,11 @@ import tkinter as tk
 import random
 import time
 
+
 start_time = 0
 colors = ['yellow', 'red', 'green']
 wrong = 0
+
 
 
 window = tk.Tk()
@@ -12,12 +14,14 @@ window = tk.Tk()
 window.geometry("400x400")
 
 
-
 def send_message():
     global wrong
     if label["background"] == "red":
         spend_time = round(time.time() - start_time, 3)
         result.config(text=f"Your reaction: {spend_time} s.")
+        var = entry.get()
+        result_3.config(
+            text=f"{var}, {spend_time} s.")
 
     else:
         wrong_click = "Try again"
@@ -27,6 +31,14 @@ def send_message():
         label.config(background="grey")
         window.update()
         time.sleep(1)
+
+
+# def send_message2():
+#     var = entry.get()
+#     print(var)
+#     result_3.config(
+#         text=var
+#     )
 
 
 
@@ -39,6 +51,22 @@ label = tk.Label(
     height=4
 )
 
+label3 = tk.Label(
+    text="Please write your name and surname",
+    foreground="red",
+    background="white",
+    width=100,
+    height=2
+)
+
+entry = tk.Entry(
+    width=30
+)
+
+frame = tk.Frame(
+    height=10
+)
+
 label2 = tk.Label(
     text="If the title is red, click the button",
     foreground="black",
@@ -46,6 +74,7 @@ label2 = tk.Label(
     width=100,
     height=2
 )
+
 
 frame = tk.Frame(
     height=10
@@ -81,6 +110,10 @@ result_1 = tk.Label(
     font=("Arial", 25)
 )
 
+result_3 = tk.Label(
+    foreground="green",  # Set the text color to white
+    font=("Arial", 25)
+)
 
 
 def timer_update():
@@ -100,7 +133,7 @@ window.after(2000, timer_update )
 
 
 for c in window.children:
-    print(c)
+    # print(c)
     window.children[c].pack()
 
 
